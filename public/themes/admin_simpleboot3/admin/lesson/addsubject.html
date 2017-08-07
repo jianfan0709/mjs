@@ -1,0 +1,133 @@
+<include file="public@header"/>
+<style type="text/css">
+    .pic-list li {
+        margin-bottom: 5px;
+    }
+</style>
+<script type="text/html" id="photos-item-tpl">
+    <li id="saved-image{id}">
+        <input id="photo-{id}" type="hidden" name="photo_urls[]" value="{filepath}">
+        <input class="form-control" id="photo-{id}-name" type="text" name="photo_names[]" value="{name}"
+               style="width: 200px;" title="图片名称">
+        <img id="photo-{id}-preview" src="{url}" style="height:36px;width: 36px;"
+             onclick="imagePreviewDialog(this.src);">
+        <a href="javascript:uploadOneImage('图片上传','#photo-{id}');">替换</a>
+        <a href="javascript:(function(){$('#saved-image{id}').remove();})();">移除</a>
+    </li>
+</script>
+</head>
+<body>
+<div class="wrap js-check-wrap">
+    <ul class="nav nav-tabs">
+       <li><a href="{:url('lesson/subject')}">科目管理</a></li>
+        <li class="active"><a href="{:url('lesson/addsubject')}">添加科目</a></li>
+    </ul>
+    <form action="{:url('lesson/addsubjectpost')}" method="post" class="form-horizontal js-ajax-form margin-top-20">
+        <div class="row">
+            <div class="col-md-9">
+                <table class="table table-bordered">
+                    <tr>
+                        <th>名称</th>
+                        <td>
+                            <input class="form-control" type="text" name="post[name]" id="keywords" value="" placeholder="请输入关键字">
+                        </td>
+                    </tr>
+                    <tr>
+                    	<th>图片</th>
+                        <td>
+                            <div style="text-align: left;">
+                                <input type="hidden" name="post[thumbnail]" id="thumbnail" value="">
+                                <a href="javascript:uploadOneImage('图片上传','#thumbnail');">
+                                    <img src="__TMPL__/public/assets/images/default-thumbnail.png"
+                                         id="thumbnail-preview"
+                                         width="135" style="cursor: pointer"/>
+                                </a>
+                                <input type="button" class="btn btn-sm btn-cancel-thumbnail" value="取消图片">
+                            </div>
+                        </td>
+                    </tr>
+                     
+                    <tr>
+                        <th>是否公开</th>
+                        <td>
+                            <select name="post[type]">
+                               <option value="0">公开</option>
+                               <option value="1">不公开</option>
+                            </select>
+
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>科目描述</th>
+                        <td>
+                            <textarea class="form-control" name="post[descript]" style="height: 50px;"
+                                      placeholder="请填写摘要"></textarea>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>状态</th>
+                        <td>
+                            <input type="radio" name="post[status]" value="1" checked />公开
+                            <input type="radio" name="post[status]" value="0" />隐藏
+                        </td>
+                    </tr>
+                    
+                </table>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-primary">{:lang('ADD')}</button>
+                        <a class="btn btn-default" href="javascript:history.go(-1);">{:lang('BACK')}</a>
+                    </div>
+                </div>
+            </div>
+    </form>
+</div>
+<script type="text/javascript" src="__STATIC__/js/admin.js"></script>
+<script type="text/javascript">
+    //编辑器路径定义
+    var editorURL = GV.WEB_ROOT;
+</script>
+<script type="text/javascript" src="__STATIC__/js/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" src="__STATIC__/js/ueditor/ueditor.all.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+
+        editorcontent = new baidu.editor.ui.Editor();
+        editorcontent.render('content');
+        try {
+            editorcontent.sync();
+        } catch (err) {
+        }
+
+        $('.btn-cancel-thumbnail').click(function () {
+            $('#thumbnail-preview').attr('src', '__TMPL__/public/assets/images/default-thumbnail.png');
+            $('#thumbnail').val('');
+        });
+    });
+
+    function doSelectCategory() {
+        var selectedCategoriesId = $('#js-categories-id-input').val();
+        openIframeLayer("{:url('AdminCategory/select')}?ids=" + selectedCategoriesId, '请选择分类', {
+            area: ['700px', '400px'],
+            btn: ['确定', '取消'],
+            yes: function (index, layero) {
+                //do something
+
+                var iframeWin          = window[layero.find('iframe')[0]['name']];
+                var selectedCategories = iframeWin.confirm();
+                if (selectedCategories.selectedCategoriesId.length == 0) {
+                    layer.msg('请选择分类');
+                    return;
+                }
+                $('#js-categories-id-input').val(selectedCategories.selectedCategoriesId.join(','));
+                $('#js-categories-name-input').val(selectedCategories.selectedCategoriesName.join(' '));
+                //console.log(layer.getFrameIndex(index));
+                layer.close(index); //如果设定了yes回调，需进行手工关闭
+            }
+        });
+    }
+</script>
+</body>
+</html>

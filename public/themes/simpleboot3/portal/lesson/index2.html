@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+    <title></title>
+    <link rel="stylesheet" href="/static/static/css/cui.css" />
+    <link rel="stylesheet" href="/static/static/css/lib.css" />
+    <link rel="stylesheet" href="/static/static/css/style.css" />
+
+</head>
+<body>
+    
+    <div class="viewport">
+        <!-- 头部 -->
+        <div class="header">
+            <span class="tit">课程中心</span>
+            <div class="so-btn"></div>
+        </div>
+        <!-- 头部 end -->
+        
+        <ul class="cur-tit TAB_CLICK" id=".tab-show1">
+            <li><a href="javascript:void(0);" class="on">全部课程</a></li>
+            <li><a href="javascript:void(0);">热门课程</a></li>
+            <li><a href="javascript:void(0);">新课推荐</a></li>
+            <li><a href="javascript:void(0);">销售技巧</a></li>
+        </ul>
+
+        <!-- 内容 -->
+        <div class="main">
+            <div class="tab-show1">
+                <div class="sl-list5">
+                    <ul class="TAB_CLICK" id=".tab-show2">
+                        <li class="on"><a href="{:url('lesson/index')}">品牌</a></li>
+                        <li><a href="javascript:void(0);">分类</a></li>
+                    </ul>
+                </div>
+                <div class="tab-show2">
+                    <div class="city">
+                        <div class="city-index">
+                            <a href="#A">A</a>
+                            <a href="#B">B</a>
+                            <a href="#C">C</a>
+                            <a href="#D">D</a>
+                            <a href="#E">E</a>
+                            <a href="#F">F</a>
+                            <a href="#G">G</a>
+                            <a href="#H">H</a>
+                            <a href="#I">I</a>
+                            <a href="#J">J</a>
+                            <a href="#K">K</a>
+                            <a href="#L">L</a>
+                            <a href="#M">M</a>
+                            <a href="#N">N</a>
+                            <a href="#O">O</a>
+                            <a href="#P">P</a>
+                            <a href="#Q">Q</a>
+                            <a href="#R">R</a>
+                            <a href="#S">S</a>
+                            <a href="#T">T</a>
+                            <a href="#W">W</a>
+                            <a href="#X">X</a>
+                            <a href="#Y">Y</a>
+                            <a href="#Z">Z</a>
+                        </div>
+                        <div class="city-cont" style="height: 648px;">
+						
+							<?php foreach(range('A','Z') as $key){ ?>
+								
+								<div class="item" id="<?php $key; ?>">
+                                <h2 class="tith2"><?php echo $key; ?></h2>
+                                <ul>
+                                    <li>
+                                        <a href="{:url('lesson/brandlist')}" class="city">
+                                            <div class="pic">
+                                                <img src="/static/static/images/pic-02.jpg" alt="">
+                                            </div>
+                                            <div class="name">AKG</div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+								
+							<?php }?>
+						
+							
+						
+                            
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 内容 end -->
+        
+        <!-- 底部 -->
+        <div class="footer">
+            <ul class="ft-list1">
+                <li class="l1 on">
+                   <a href="{:url('index/index')}">
+                        <div class="ico"></div>
+                        <p>首页</p>
+                    </a>
+                </li>
+                <li class="l2">
+                    <a href="{:url('lesson/index')}">
+                        <div class="ico"></div>
+                        <p>课程</p>
+                    </a>
+                </li>
+                <li class="l3">
+                    <a href="{:url('task/index')}">
+                        <div class="ico"></div>
+                        <p>任务</p>
+                    </a>
+                </li>
+                <li class="l4">
+                    <a href="')}">
+                        <div class="ico"></div>
+                        <p>排行</p>
+                    </a>
+                </li>
+                <li class="l5">
+                    <a href="">
+                        <div class="ico"></div>
+                        <p>我的</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!-- 底部 end -->
+
+    </div>
+    
+	<script type="text/javascript" src="/static/static/js/jquery.js"></script>
+    <script type="text/javascript" src="/static/static/js/lib.js"></script>
+    <script>
+
+        //检索高亮
+        $('.city-index a').click(function(event) {
+            $(this).addClass('on');
+            $(this).siblings('a').removeClass('on');
+        })
+
+        $('.city-cont').scroll(function(){
+            $('.city-cont .item').each(function(index, el) {
+                var tp = $(this).offset().top-$(window).scrollTop()
+                if(tp>=0){
+                    $('.city-index a').removeClass('on');
+                    $('.city-index a').eq($(this).index()).addClass('on');
+                    return false;
+                }
+                
+            });
+        })
+
+    </script>
+</body>
+</html>

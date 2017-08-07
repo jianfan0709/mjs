@@ -1264,8 +1264,7 @@ Wind.ready(function () {
             bootstrapDatetimePicker: 'bootstrap-datetimepicker/js/bootstrap-datetimepicker',
             dragula: 'dragula/dragula.min',
             imagesloaded: 'masonry/imagesloaded.pkgd.min',
-            masonry: 'masonry/masonry.pkgd.min',
-            ueditor:'ueditor/ueditor.all.min'
+            masonry: 'masonry/masonry.pkgd.min'
         },
         //CSS路径
         alias_css = {
@@ -1281,8 +1280,7 @@ Wind.ready(function () {
             colorpicker: 'colorpicker/css/colorpicker',
             animate: 'animate/animate',
             bootstrapDatetimePicker: 'bootstrap-datetimepicker/css/bootstrap-datetimepicker',
-            dragula: 'dragula/dragula.min',
-            ueditor:'ueditor/themes/default/css/ueditor'
+            dragula: 'dragula/dragula.min'
         };
 
     //add suffix and version

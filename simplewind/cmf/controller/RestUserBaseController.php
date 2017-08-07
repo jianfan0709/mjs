@@ -15,6 +15,15 @@ use think\Db;
 class RestUserBaseController extends RestBaseController
 {
 
+    //token
+    private $token = '';
+
+    //设备类型
+    private $deviceType = '';
+
+    //用户 id
+    private $userId = 0;
+
     public function _initialize()
     {
 
@@ -49,6 +58,13 @@ class RestUserBaseController extends RestBaseController
         }
 
         $this->userId = $user['id'];
+    }
+
+    public function getUserId()
+    {
+        return $this->userId;
+
+
     }
 
 }

@@ -42,7 +42,7 @@ class PublicController extends HomeBaseController
 
         }
 
-        return redirect($avatar);
+        return $this->redirect($avatar);
     }
 
 }

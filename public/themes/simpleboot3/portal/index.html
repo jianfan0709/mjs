@@ -1,189 +1,300 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
-    <title>首页 {$site_info.site_name|default=''}</title>
-    <meta name="keywords" content="{$site_info.site_seo_keywords|default=''}"/>
-    <meta name="description" content="{$site_info.site_seo_description|default=''}">
-    <include file="public@head"/>
-    <link href="__TMPL__/public/assets/css/slippry/slippry.css" rel="stylesheet">
-    <style>
-        .caption-wraper {
-            position: absolute;
-            left: 50%;
-            bottom: 2em;
-        }
+    <meta charset="UTF-8">
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+    <title></title>
+    <link rel="stylesheet" href="/static/static/css/cui.css" />
+    <link rel="stylesheet" href="/static/static/css/lib.css" />
+    <link rel="stylesheet" href="/static/static/css/style.css" />
 
-        .caption-wraper .caption {
-            position: relative;
-            left: -50%;
-            background-color: rgba(0, 0, 0, 0.54);
-            padding: 0.4em 1em;
-            color: #fff;
-            -webkit-border-radius: 1.2em;
-            -moz-border-radius: 1.2em;
-            -ms-border-radius: 1.2em;
-            -o-border-radius: 1.2em;
-            border-radius: 1.2em;
-        }
-
-        .tc-gridbox {
-            margin: 0;
-        }
-
-        @media (max-width: 767px) {
-            .sy-box {
-                margin: 12px -20px 0 -20px;
-            }
-
-            .caption-wraper {
-                left: 0;
-                bottom: 0.4em;
-            }
-
-            .caption-wraper .caption {
-                left: 0;
-                padding: 0.2em 0.4em;
-                font-size: 0.92em;
-                -webkit-border-radius: 0;
-                -moz-border-radius: 0;
-                -ms-border-radius: 0;
-                -o-border-radius: 0;
-                border-radius: 0;
-            }
-        }
-
-    </style>
-    <hook name="before_head_end"/>
 </head>
-<body class="body-white">
-<include file="public@nav"/>
-
-<ul id="home-slider" class="list-unstyled">
-    <php>
-        $top_slide_id=empty($theme_vars['top_slide'])?1:$theme_vars['top_slide'];
-    </php>
-    <slides id="$top_slide_id">
-        <li>
-            <div class="caption-wraper">
-                <div class="caption">{$vo.title|default=''}</div>
-            </div>
-            <a href="{$vo.url|default=''}"><img src="{:cmf_get_image_url($vo.image)}" alt=""></a>
-        </li>
-    </slides>
-    <noslides id="$top_slide_id">
-        <li>
-            <div class="caption-wraper">
-                <div class="caption">此幻灯片只是演示,您没有设置任何幻灯片,请到后台模板设置！</div>
-            </div>
-            <a href=""><img src="__TMPL__/public/assets/images/demo/1.jpg" alt=""></a>
-        </li>
-        <li>
-            <div class="caption-wraper">
-                <div class="caption">此幻灯片只是演示,您没有设置任何幻灯片,请到后台模板设置！</div>
-            </div>
-            <a href=""><img src="__TMPL__/public/assets/images/demo/2.jpg" alt=""></a>
-        </li>
-        <li>
-            <div class="caption-wraper">
-                <div class="caption">此幻灯片只是演示,您没有设置任何幻灯片,请到后台模板设置！</div>
-            </div>
-            <a href=""><img src="__TMPL__/public/assets/images/demo/3.jpg" alt=""></a>
-        </li>
-    </noslides>
-</ul>
-
-<div class="container">
-    <widget name="features">
-        <div>
-            <h1 class="text-center">{$widget.title}</h1>
-            <h3 class="text-center">{$widget.vars.sub_title}</h3>
+<body>
+    
+    <div class="viewport">
+        <!-- 头部 -->
+        <div class="header">
+            <span class="tit">首页</span>
+            <div class="so-btn"></div>
         </div>
-        <php>
-            $features_count = count($widget['vars']['features']);
-            $rows = ceil($features_count/3);
-        </php>
-        <for start="1" end="$rows" comparison="elt" step="1" name="row">
-            <php>
-                $first_row = ($row-1)*3;
-                $features = array_slice($widget['vars']['features'],$first_row,3);
-            </php>
-            <div class="row">
-                <foreach name="features" item="vo">
-                    <div class="col-md-4">
-                        <h2 class="font-large nospace"><i class="fa fa-{$vo.icon}"></i> {$vo.title}</h2>
-                        <p>{$vo.content}</p>
-                    </div>
-                </foreach>
+        <!-- 头部 end -->
+        
+        <!-- 内容 -->
+        <div class="main">
+            <!-- banner -->
+            <div class="banner">
+                <a href="" class="item">
+                    <img src="/static/static/images/pic-01.jpg" alt="">
+                </a>
+                <a href="" class="item">
+                    <img src="/static/static/images/pic-01.jpg" alt="">
+                </a>
+                <a href="" class="item">
+                    <img src="/static/static/images/pic-01.jpg" alt="">
+                </a>
+                <a href="" class="item">
+                    <img src="/static/static/images/pic-01.jpg" alt="">
+                </a>
+                <a href="" class="item">
+                    <img src="/static/static/images/pic-01.jpg" alt="">
+                </a>
             </div>
-        </for>
-
-    </widget>
-
-    <widget name="last_news">
-        <div>
-            <h1 class="text-center">{$widget.title}</h1>
-        </div>
-
-        <div class="row">
-            <?php  $widget["vars"]["last_news_category_id"] = empty($widget["vars"]["last_news_category_id"])?1:$widget["vars"]["last_news_category_id"];?>
-            <portal:articles limit="4" order="post.published_time DESC"
-                             categoryIds="$widget.vars.last_news_category_id">
-                <div class="col-md-3">
-                    <div class="tc-gridbox">
-                        <div class="header">
-                            <div class="item-image">
-                                <a href="{:cmf_url('portal/Article/index',array('id'=>$vo.id,'cid'=>$vo.category_id))}">
-                                    <present name="vo.more.thumbnail">
-                                        <empty name="vo.more.thumbnail">
-                                            <img src="__TMPL__/public/assets/images/default-thumbnail.png"
-                                                 class="img-responsive"
-                                                 alt="">
-                                            <else/>
-                                            <img src="{:cmf_get_image_url($vo.more.thumbnail)}"
-                                                 class="img-responsive"
-                                                 alt="">
-                                        </empty>
-                                        <else/>
-                                        <img src="__TMPL__/public/assets/images/default-thumbnail.png"
-                                             class="img-responsive"
-                                             alt="">
-                                    </present>
-                                </a>
-                            </div>
-                            <h3>
-                                <a href="{:cmf_url('portal/Article/index',array('id'=>$vo.id,'cid'=>$vo.category_id))}">{$vo.post_title}</a>
-                            </h3>
-                            <hr>
-                        </div>
-                        <div class="body">
-                            <p>
-                                <a href="{:cmf_url('portal/Article/index',array('id'=>$vo.id,'cid'=>$vo.category_id))}">...</a>
-                            </p>
-                        </div>
-                    </div>
+            <!-- banner -->
+            
+            <!-- 数据 -->
+            <ul class="sl-list1">
+                <li>
+                    <div class="numb">6</div>
+                    <p>本月销售</p>
+                </li>
+                <li>
+                    <div class="numb">50</div>
+                    <p>完成课程</p>
+                </li>
+                <li>
+                    <div class="numb">181</div>
+                    <p>学习天数</p>
+                </li>
+            </ul>
+            <!-- 数据 end -->
+            
+            <!-- 热门课程 -->
+            <div class="row-a1">
+                <div class="g-tit1">
+                    <a href="" class="more">查看全部</a>
+                    <span>热门课程</span>
                 </div>
-            </portal:articles>
+                <ul class="sl-list2">
+                    <li>
+                        <div class="pic">
+                            <img src="/static/static/images/pic-02.jpg" alt="">
+                        </div>
+                        <p>文本示例文本示例</p>
+                    </li>
+                    <li>
+                        <div class="pic">
+                            <img src="/static/static/images/pic-02.jpg" alt="">
+                        </div>
+                        <p>文本示例文本示例</p>
+                    </li>
+                    <li>
+                        <div class="pic">
+                            <img src="/static/static/images/pic-02.jpg" alt="">
+                        </div>
+                        <p>文本示例文本示例</p>
+                    </li>
+                    <li>
+                        <div class="pic">
+                            <img src="/static/static/images/pic-02.jpg" alt="">
+                        </div>
+                        <p>文本示例文本示例</p>
+                    </li>
+                    <li>
+                        <div class="pic">
+                            <img src="/static/static/images/pic-02.jpg" alt="">
+                        </div>
+                        <p>文本示例文本示例</p>
+                    </li>
+                </ul>
+            </div>
+            <!-- 热门课程 end -->
+
+            <!-- 热门视频 -->
+            <div class="row-a1">
+                <div class="g-tit1">
+                    <a href="" class="more">查看全部</a>
+                    <span>热门视频</span>
+                </div>
+                <ul class="sl-list2 list1">
+                    <li>
+                        <div class="pic">
+                            <img src="/static/static/images/pic-02.jpg" alt="">
+                        </div>
+                        <p>文本示例文本示例</p>
+                    </li>
+                    <li>
+                        <div class="pic">
+                            <img src="/static/static/images/pic-02.jpg" alt="">
+                        </div>
+                        <p>文本示例文本示例</p>
+                    </li>
+                    <li>
+                        <div class="pic">
+                            <img src="/static/static/images/pic-02.jpg" alt="">
+                        </div>
+                        <p>文本示例文本示例</p>
+                    </li>
+                    <li>
+                        <div class="pic">
+                            <img src="/static/static/images/pic-02.jpg" alt="">
+                        </div>
+                        <p>文本示例文本示例</p>
+                    </li>
+                    <li>
+                        <div class="pic">
+                            <img src="/static/static/images/pic-02.jpg" alt="">
+                        </div>
+                        <p>文本示例文本示例</p>
+                    </li>
+                </ul>
+            </div>
+            <!-- 热门视频 end -->
+
+            <!-- 我的任务 -->
+            <div class="row-a1">
+                <div class="g-tit1">
+                    <a href="" class="more">查看全部</a>
+                    <span>我的任务</span>
+                </div>
+                <ul class="sl-list3">
+                    <li>
+                        <a href="">
+                            <div class="pic">
+                                <img src="/static/static/images/pic-02.jpg" alt="">
+                                <div class="tg">售</div>
+                            </div>
+                            <div class="txt">
+                                <h4>任务名称任务名称任务名称任务名称</h4>
+                                <p>任务说明任务说明任务说明任务说明任务说明任务说明任务说明</p>
+                                <div class="date">期限:2017-7-31</div>
+                                <div class="num">21/50</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <div class="pic">
+                                <img src="/static/static/images/pic-02.jpg" alt="">
+                                <div class="tg">售</div>
+                            </div>
+                            <div class="txt">
+                                <h4>任务名称任务名称任务名称任务名称</h4>
+                                <p>任务说明任务说明任务说明任务说明任务说明任务说明任务说明</p>
+                                <div class="date">期限:2017-7-31</div>
+                                <div class="num">21/50</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <div class="pic">
+                                <img src="/static/static/images/pic-02.jpg" alt="">
+                                <div class="tg tg1">教</div>
+                            </div>
+                            <div class="txt">
+                                <h4>任务名称任务名称任务名称任务名称</h4>
+                                <p>任务说明任务说明任务说明任务说明任务说明任务说明任务说明</p>
+                                <div class="date">期限:2017-7-31</div>
+                                <div class="num">21/50</div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- 我的任务 end -->
+
+            <!-- 产品专题 -->
+            <div class="row-a1">
+                <div class="g-tit1">
+                    <a href="" class="more">查看全部</a>
+                    <span>产品专题</span>
+                </div>
+                <ul class="sl-list2 list2">
+                    <li>
+                        <div class="pic">
+                            <img src="/static/static/images/pic-02.jpg" alt="">
+                        </div>
+                        <p>文本示例文本示例</p>
+                    </li>
+                    <li>
+                        <div class="pic">
+                            <img src="/static/static/images/pic-02.jpg" alt="">
+                        </div>
+                        <p>文本示例文本示例</p>
+                    </li>
+                    <li>
+                        <div class="pic">
+                            <img src="/static/static/images/pic-02.jpg" alt="">
+                        </div>
+                        <p>文本示例文本示例</p>
+                    </li>
+                    <li>
+                        <div class="pic">
+                            <img src="/static/static/images/pic-02.jpg" alt="">
+                        </div>
+                        <p>文本示例文本示例</p>
+                    </li>
+                    <li>
+                        <div class="pic">
+                            <img src="/static/static/images/pic-02.jpg" alt="">
+                        </div>
+                        <p>文本示例文本示例</p>
+                    </li>
+                </ul>
+            </div>
+            <!-- 产品专题 end -->
+
         </div>
-    </widget>
-    <include file="public@footer"/>
-</div>
-<!-- /container -->
-<include file="public@scripts"/>
-<script src="__TMPL__/public/assets/js/slippry.min.js"></script>
-<script>
-    $(function () {
-        $("#home-slider").slippry({
-            transition: 'fade',
-            useCSS: true,
-            captions: false,
-            speed: 1000,
-            pause: 3000,
-            auto: true,
-            preload: 'visible'
+        <!-- 内容 end -->
+        
+        <!-- 底部 -->
+        <div class="footer">
+            <ul class="ft-list1">
+                <li class="l1 on">
+                    <a href="{:url('index/index')}">
+                        <div class="ico"></div>
+                        <p>首页</p>
+                    </a>
+                </li>
+                <li class="l2">
+                    <a href="{:url('lesson/index')}">
+                        <div class="ico"></div>
+                        <p>课程</p>
+                    </a>
+                </li>
+                <li class="l3">
+                    <a href="{:url('task/index')}">
+                        <div class="ico"></div>
+                        <p>任务</p>
+                    </a>
+                </li>
+                <li class="l4">
+                    <a href="{:url('rank/index')}">
+                        <div class="ico"></div>
+                        <p>排行</p>
+                    </a>
+                </li>
+                <li class="l5">
+                    <a href="{:url('person/index')}">
+                        <div class="ico"></div>
+                        <p>我的</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!-- 底部 end -->
+
+    </div>
+    
+	<script type="text/javascript" src="/static/static/js/jquery.js"></script>
+    <link rel="stylesheet" href="/static/static/css/slick.css">
+    <script src="/static/static/js/slick.min.js"></script>
+    <script>
+        $(document).ready(function() {
+
+            $('.banner').slick({
+                arrows: false,
+                dots: true,
+                autoplay: false,
+                customPaging: function(){
+                    return '';
+                }
+            });
         });
-        $("#home-slider").show();
-    });
-</script>
-<hook name="before_body_end"/>
+    </script>
+
 </body>
 </html>
