@@ -17,8 +17,60 @@ class JsClassifyModel extends Base
     }
 
    public function getClassifyList($where=[]){
-      return self::where($where)->field('*')->paginate(10);
+      return self::where($where)->field('*,status status_info')->paginate(10);
    }
+    public function getClassifyListAll($where=[]){
+        return self::where($where)->field('*,status status_info,valid_name valid_name_info')->select();
+    }
+   public function getClassifyFind($where){
+       return self::where($where)->field('*')->find();
+   }
+   public function classifyAdd($data){
+       try{
+           return self::save($data);
+       }catch (\Exception $e){
+            return false;
+       }
+   }
+    public function classifyEdd($data,$where){
+        try{
+            return self::save($data,$where);
+        }catch (\Exception $e){
+            return false;
+        }
+    }
+    public function classifyDelete($where){
+        try{
+            return self::save($this->_isdelete,$where);
+        }catch (\Exception $e){
+            return false;
+        }
+    }
+    public function getStatusInfoAttr($value){
+        return [0=>'无作用',1=>'学习',2=>'销售'][$value];
+    }
+    public function getValidNameInfoAttr($value){
+     if($value<60){
+        return $value.'秒';
+        }elseif($value/60/60<1){
+            return round($value/60,2).'分钟';
+        }elseif($value/60/60<24){
+            return round($value/60/60,2).'小时';
+        }else{
+            return round($value/60/60/24,2).'天';
+        }
 
-
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+

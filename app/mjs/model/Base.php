@@ -26,8 +26,8 @@ class Base extends Model
     protected $deleteTime = 'isdelete';
 
     //自定义初始化
-    public $_isdelete=['isdelete'=>1,'deleteby'=>''];
-    public $_undelete=['isdelete'=>null,'deleteby'=>''];
+    public $_isdelete=['isdelete'=>1,'delete_by'=>''];
+    public $_undelete=['isdelete'=>null,'delete_by'=>''];
     protected function initialize(){
         //需要调用model的intitalize方法
         parent::initialize();

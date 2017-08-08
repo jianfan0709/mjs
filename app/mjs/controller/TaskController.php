@@ -36,16 +36,77 @@ class TaskController extends AdminBaseController
        $this->assign('page', $result->render());
        return $this->fetch();
    }
-    public function classifyAdd(){
-       echo '添加';
-       exit();
+
+    public function classifyadd(){
+        return $this->fetch();
     }
-    public function classifyEdit(){
-        echo '编辑';
-        exit();
+
+    public function classifyedit(){
+        $model=new \app\mjs\model\JsClassifyModel;
+        $result=$model->getClassifyFind(['id'=>$this->request->param('id')]);
+        $this->assign('data',$result);
+        return $this->fetch();
+    }
+
+    public function addPost()
+    {
+        $data = $this->request->param();
+        $model = new \app\mjs\model\JsClassifyModel();
+        $re=$model->classifyAdd($data['post']);
+        if($re){
+            $this->success('成功', url('Task/classify'));
+        }else{
+            $this->error('失败，请检查');
+        }
+    }
+
+    public function editPost()
+    {
+        $data = $this->request->param();
+        $model = new \app\mjs\model\JsClassifyModel();
+        $re=$model->classifyEdd($data['post'],['id'=>$this->request->param('id')]);
+        if($re){
+            $this->success('成功', url('Task/classify'));
+        }else{
+            $this->error('失败，请检查');
+        }
     }
     public function classifyDelete(){
-        echo '删除';
-        exit();
+        $model = new \app\mjs\model\JsClassifyModel();
+        $re=$model->classifyDelete(['id'=>$this->request->param('id')]);
+        if($re){
+            $this->success('成功', url('Task/classify'));
+        }else{
+            $this->error('失败，请检查');
+        }
+    }
+
+    public function taskList(){
+        $model=new \app\mjs\model\JsTaskModel;
+        $result=$model->getTaskList();
+        $this->assign('TaskData',$result->items());
+        $this->assign('page', $result->render());
+        return $this->fetch();
+    }
+    public function taskadd(){
+        $model=new \app\mjs\model\JsClassifyModel;
+        $result=$model->getClassifyListAll();
+        $this->assign('TaskData',$result);
+        return $this->fetch();
+    }
+    public function taskaddPost(){
+        $data = $this->request->param();
+        $data['post']['start_time']=strtotime($data['post']['start_time']);
+        if(empty($data['post']['end_time'])){
+            $model = new \app\mjs\model\JsClassifyModel();
+            $data['post']['end_time']=$data['post']['start_time']+$model->getClassifyFind(['id'=>$data['post']['classify_id']])['valid_name'];
+        }
+        $model = new \app\mjs\model\JsTaskModel();
+        $re=$model->TaskAdd($data['post']);
+        if($re){
+            $this->success('成功', url('Task/taskList'));
+        }else{
+            $this->error('失败，请检查');
+        }
     }
 }

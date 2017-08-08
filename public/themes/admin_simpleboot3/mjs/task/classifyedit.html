@@ -1,0 +1,74 @@
+<include file="public@header"/>
+</head>
+<body>
+<div class="wrap js-check-wrap">
+    <ul class="nav nav-tabs">
+        <li><a href="{:url('Task/classify')}">分类管理</a></li>
+        <li class="active"><a href="{:url('Task/classifyedit',['id'=>$data['id']])}">分类修改</a></li>
+    </ul>
+    <form action="{:url('Task/editPost')}" method="post" class="form-horizontal js-ajax-form margin-top-20">
+        <div class="row">
+            <div class="col-md-9">
+                <table class="table table-bordered">
+                    <tr>
+                        <th width="200">分类名称<span class="form-required">*</span></th>
+                        <td>
+                            <input type="hidden" name="post[id]" value="{$data.id}">
+                            <input class="form-control" type="text" style="width: 400px;" name="post[name]"
+                                   required value="{$data.name}"
+                                   placeholder="请分类名称"/>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>分类简称<span class="form-required">*</span></th>
+                        <td>
+                            <input class="form-control" type="text" name="post[short_name]" style="width:400px"
+                                   value="{$data.short_name}"   placeholder="请输入分类简称">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>有效期(秒)</th>
+                        <td>
+                        <input class="form-control" type="text" name="post[valid_name]" style="width:400px"
+                               value="{$data.valid_name}"  placeholder="请输入有效期">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>类型</th>
+                        <td>
+                            <select class="form-control" name="post[status]" id="input-parent">
+                                <option value="0" <if condition="$data['status'] == 0">selected="selected"</if>>无作用</option>
+                                <option value="1" <if condition="$data['status'] == 1">selected="selected"</if>>学习</option>
+                                <option value="2" <if condition="$data['status'] == 2">selected="selected"</if>>售卖</option>
+
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>备注</th>
+                        <td><textarea class="form-control" name="post[remark]" value="{$data.remark}" style="height: 50px;"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>排序</th>
+                    <td>
+                    <input class="form-control" type="text" value="{$data.listorder}" name="post[listorder]" style="width:400px"
+                           placeholder="请输入排序数字">
+                    </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-primary js-ajax-submit">{:lang('SAVE')}</button>
+                        <a class="btn btn-default" href="{:url('Task/classify')}">{:lang('BACK')}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<script type="text/javascript" src="__STATIC__/js/admin.js"></script>
+</body>
+</html>
