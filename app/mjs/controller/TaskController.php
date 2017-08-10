@@ -94,6 +94,17 @@ class TaskController extends AdminBaseController
         $this->assign('TaskData',$result);
         return $this->fetch();
     }
+    public function taskedit(){
+        $model=new \app\mjs\model\JsClassifyModel;
+        $result=$model->getClassifyListAll();
+        $this->assign('TaskData',$result);
+        $model=new \app\mjs\model\JsTaskModel;
+        $result_1=$model->getTaskFind(['id'=>$this->request->param('id')]);
+        $result_1['info']=htmlspecialchars_decode($result_1['info']);
+        $this->assign('data',$result_1);
+        $this->assign('info',$this->request->param('info',0));
+        return $this->fetch();
+    }
     public function taskaddPost(){
         $data = $this->request->param();
         $data['post']['start_time']=strtotime($data['post']['start_time']);
@@ -105,6 +116,32 @@ class TaskController extends AdminBaseController
         $re=$model->TaskAdd($data['post']);
         if($re){
             $this->success('成功', url('Task/taskList'));
+        }else{
+            $this->error('失败，请检查');
+        }
+    }
+
+    public function taskeditPost(){
+        $data = $this->request->param();
+        $data['post']['start_time']=strtotime($data['post']['start_time']);
+        if(empty($data['post']['end_time'])){
+            $model = new \app\mjs\model\JsClassifyModel();
+            $data['post']['end_time']=$data['post']['start_time']+$model->getClassifyFind(['id'=>$data['post']['classify_id']])['valid_name'];
+        }
+        $model = new \app\mjs\model\JsTaskModel();
+        $re=$model->TaskEdd($data['post'],['id'=>$this->request->param('id')]);
+        if($re){
+            $this->success('成功');
+        }else{
+            $this->error('失败，请检查');
+        }
+    }
+
+    public function taskdelete(){
+        $model = new \app\mjs\model\JsTaskModel();
+        $re=$model->TaskDelete(['id'=>$this->request->param('id')]);
+        if($re){
+            $this->success('成功', url('Task/classify'));
         }else{
             $this->error('失败，请检查');
         }

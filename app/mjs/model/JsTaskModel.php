@@ -28,6 +28,7 @@ class JsTaskModel extends Base
                     t.info,
                     t.num,
                     t.status,
+                    t.status status_info,
                     t.remark,
                     t.listorder,
                     t.created_at,
@@ -63,6 +64,9 @@ class JsTaskModel extends Base
         }catch (\Exception $e){
             return false;
         }
+    }
+    public function getStatusInfoAttr($value){
+        return ['上线','下线'][$value];
     }
 
 }
