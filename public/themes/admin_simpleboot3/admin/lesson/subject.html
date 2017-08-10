@@ -19,7 +19,7 @@
 				<tr>
 					<th width="50">ID</th>
 					<th>科目名称</th>
-					<th>{:lang('STATUS')}</th>
+					<th>logo</th>
 					<th width="130">{:lang('ACTIONS')}</th>
 				</tr>
 			</thead>
@@ -28,10 +28,8 @@
 				<tr>
 					<td>{$vo.id}</td>
 					<td>{$vo.cname}</td>
-					<td><if condition="$vo['status'] eq 1">公开<else />隐藏</if></td>
+					<td><img src="http://dd.moresales.cn/upload/{$vo.logo}" style="width:50px;height:50px;"></td>
 					<td>
-						<a href="{:cmf_url('lesson/subjecttype',array('id'=>$vo['id']))}"><if condition="$vo['status'] eq 1">隐藏<else />公开</if></a>
-						&nbsp;
 						<a href="{:url('lesson/subjectdelete',array('id'=>$vo['id']))}">删除</a>
 					</td>
 				</tr>

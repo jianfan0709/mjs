@@ -29,9 +29,9 @@
 				<foreach name="list" item="vo">
 				<tr>
 					<td>{$vo.id}</td>
-					<td>{$arr[$vo.subject_id]['cname']}<a href="aaa" target="_blank" ></a></td>
+					<td>{$vo.cname}<a href="aaa" target="_blank" ></a></td>
 					<td>{$vo['name']}</td>
-					<td>5</td>
+					<td>{$vo['ctype']}</td>
 					<td><if condition="$vo['type'] eq 1">公开<else />隐藏</if></td>
 					<td>
 						<a href="{:cmf_url('lesson/lessontype',array('id'=>$vo['id']))}"><if condition="$vo['type'] eq 1">隐藏<else />公开</if></a>

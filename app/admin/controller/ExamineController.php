@@ -13,19 +13,6 @@ namespace app\admin\controller;
 use cmf\controller\AdminBaseController;
 use think\Db;
 
-/**
- * Class UserController
- * @package app\admin\controller
- * @adminMenuRoot(
- *     'name'   => '管理组',
- *     'action' => 'default',
- *     'parent' => 'user/AdminIndex/default',
- *     'display'=> true,
- *     'order'  => 10000,
- *     'icon'   => '',
- *     'remark' => '管理组'
- * )
- */
 class ExamineController extends AdminBaseController
 {
 
@@ -44,38 +31,62 @@ class ExamineController extends AdminBaseController
      */
     public function index()
     {
-        $where = ["user_type" => 1];
-        /**搜索条件**/
-        $user_login = $this->request->param('user_login');
-        $user_email = trim($this->request->param('user_email'));
-
-        if ($user_login) {
-            $where['user_login'] = ['like', "%$user_login%"];
-        }
-
-        if ($user_email) {
-            $where['user_email'] = ['like', "%$user_email%"];;
-        }
-        $users = Db::name('user')
-            ->where($where)
-            ->order("id DESC")
-            ->paginate(10);
-        // 获取分页显示
-        $page = $users->render();
-
-        $rolesSrc = Db::name('role')->select();
-        $roles    = [];
-        foreach ($rolesSrc as $r) {
-            $roleId           = $r['id'];
-            $roles["$roleId"] = $r;
-        }
-        $this->assign("page", $page);
-        $this->assign("roles", $roles);
-        $this->assign("users", $users);
+        $list=DB::name('js_examine')->select();
+        $this->assign('list',$list);
         return $this->fetch();
     }
 
     public function addexamine(){
-		return $this->fetch();
-	}
+        $list=DB::name('js_lesson')->select();
+        $this->assign('list',$list);
+        return $this->fetch();
+    }
+
+    public function addexaminepost(){
+        
+        if(empty($_POST['subjectid'])){
+            $this->error('请选择课程！');
+        }
+        if(empty($_POST['type'])){
+            $this->error('请选择题型!');
+        }
+        $type=$_POST['type'];
+        if($type==1 || $type==2){
+            if($type==1){
+                $check_answer=$_POST['check_answer'];
+            }elseif($type==2){
+                $check_answer=implode('|', $_POST['check_answer']);
+            }
+            $data=array(
+                'lessonid'=>$_POST['subjectid'],
+                'type'=>$_POST['type'],
+                'question'=>$_POST['question'],
+                'answer1'=>$_POST['answer1'],
+                'answer2'=>$_POST['answer2'],
+                'answer3'=>$_POST['answer3'],
+                'answer4'=>$_POST['answer4'],
+                'check_answer'=>$check_answer,
+                'score'=>$_POST['score'],
+                'jiexi'=>$_POST['jiexi'],
+                'create_time'=>date('Y-m-d H:i:s',time())
+            );
+        }else{
+            $data=array(
+                'lessonid'=>$_POST['subjectid'],
+                'type'=>$_POST['type'],
+                'question'=>$_POST['question'],
+                'panduan_answer'=>$_POST['panduan_answer'],
+                'score'=>$_POST['score'],
+                'jiexi'=>$_POST['jiexi'],
+                'create_time'=>date('Y-m-d H:i:s',time())
+            );
+        }
+        $re=DB::name('js_examine')->insert($data);
+        if($re){
+            $this->success('添加成功！',url('examine/index'));
+        }else{
+            $this->error('添加失败！');
+        }
+    }
+
 }

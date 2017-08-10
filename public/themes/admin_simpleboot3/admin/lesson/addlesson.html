@@ -29,7 +29,7 @@
                     <tr>
                         <th width="100">科目课程</th>
                         <td>
-                            <select name="subject">
+                            <select name="subject" class="subject" style="width:150px;height:30px;border-radius: 5px;" onchange="choosesub();">
                             	<option value="0">请选择</option>
                             	<foreach name="category" item="val">
 								<option value="{$val.id}">{$val.cname}</option>
@@ -38,25 +38,11 @@
                         </td>
                     </tr>
                     <tr>
-                        <th>产品种类<span class="form-required">*</span></th>
+                        <th style="width:100px;">品牌</th>
                         <td>
-                            <select name="ctype">
-                            	<option value="0">选择产品种类</option>
-		                    	<option value="1">影音娱乐</option>
-		                    	<option value="2">投影机</option>
-		                        <option value="3">无人机</option>
-		                        <option value="4">体感车</option>
-		                        <option value="5">生活电器</option>
-		                        <option value="6">摄影摄像</option>
-		                        <option value="7">家居生活</option>
-		                        <option value="8">智能机器人</option>
-								<option value="9">手机配件</option>
-		                        <option value="10">智能穿戴</option>
-		                        <option value="11">玩具乐器</option>
-		                        <option value="12">保健器械</option>
-		                        <option value="13">美妆个护</option>
-		                        <option value="14">其他</option>
-                            </select>
+                           <select name="ssubject" style="width:150px;height:30px;border-radius: 5px;" class="ssubject">
+                                <option value="0">请选择</option>
+                           </select>
                         </td>
                     </tr>
                     <tr>
@@ -79,20 +65,44 @@
                             </div>
                         </td>
                     </tr>
-                     <tr>
-                        <th>图片配图</th>
-                        <td>
-                            <ul id="photos" name="photos" class="pic-list list-unstyled form-inline"></ul>
-                            <a href="javascript:uploadMultiImage('图片上传','#photos','photos-item-tpl');"
-                               class="btn btn-default btn-sm">选择图片</a>
-                        </td>
-                    </tr>
+                    
                     <tr>
-                        <th>图文介绍</th>
+                        <th>卖点速记</th>
                         <td>
-                            <script type="text/plain" id="content" name="description"></script>
+                            <script type="text/plain" id="content" name="description" style="height:200px;"></script>
                         </td>
                     </tr>
+
+                    <tr>
+                        <th>操作指南</th>
+                        <td>
+                            <script type="text/plain" id="content1" name="guide" style="height:200px;"></script>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>销售话术</th>
+                        <td>
+                            <script type="text/plain" id="content2" name="speech" style="height:200px;"></script>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>热门课程</th>
+                        <td>
+                            <input type="radio" name="hot" value="0" checked />否 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="radio" name="hot" value="1"  />是
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>新课推荐</th>
+                        <td>
+                            <input type="radio" name="recommend" value="0" checked />否 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="radio" name="recommend" value="1" />是
+                        </td>
+                    </tr>
+
                     <tr>
                         <th>点赞数</th>
                         <td>
@@ -129,6 +139,8 @@
 
         editorcontent = new baidu.editor.ui.Editor();
         editorcontent.render('content');
+        editorcontent.render('content1');
+        editorcontent.render('content2');
         try {
             editorcontent.sync();
         } catch (err) {
@@ -160,6 +172,24 @@
                 layer.close(index); //如果设定了yes回调，需进行手工关闭
             }
         });
+    }
+
+    function choosesub(){
+        var id=$('.subject option:selected') .val();//选中的值
+        $(".ssubject").empty();
+        $.ajax({
+            type:'post',
+            url:"{:url('lesson/choosesub')}",
+            data:'id='+id,
+            success:function(msg){
+                var num=msg.data.list.length;
+                var html='';
+                for(var i=0;i<num;i++){
+                    html+="<option value='"+msg['data']['list'][i]['id']+"'>"+msg['data']['list'][i]['cname']+"</option>";
+                }
+                $(".ssubject").append(html);
+            }
+        })
     }
 </script>
 </body>

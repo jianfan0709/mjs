@@ -1,0 +1,1148 @@
+﻿/*
+-----------------[首页]--------------*/
+.banner .item{border-radius: 7px;overflow: hidden;}
+.banner .item img{
+    display: block;
+    width: 100%;
+}
+.banner .slick-dots{
+    position: absolute; 
+    left: 0;
+    width: 100%;
+    bottom: 6px;
+    text-align: center;
+}
+.banner .slick-dots li{
+    display: inline-block;
+    width: 8px;height: 8px;
+    margin: 0 3px;
+    border-radius: 50%;
+    background-color: #fff;
+}
+
+.sl-list1{
+    overflow: hidden;
+    margin: 7px 0;
+    border-radius: 7px;
+    background-color: #fff;
+}
+.sl-list1 li{
+    position: relative;
+    float: left;
+    width: 33.33%;
+    text-align: center;
+    font-size: 14px;
+    color: #95989a;
+    padding: 15px 0;
+}
+.sl-list1 li:after{
+    position: absolute;
+    content: '';
+    height: 32px;
+    width: 1px;
+    top: 50%;right: 0;
+    margin-top: -16px;
+    background-color: #f5f5f8;
+}
+.sl-list1 li:last-child:after{display: none;}
+.sl-list1 li .numb{
+    font-size: 30px;
+    color: #4d4d4d;
+    line-height: 1em;
+    white-space: nowrap;
+    margin-bottom: 7px;
+}
+.sl-list1 li p{
+    line-height: 1em;
+    white-space: nowrap;
+}
+
+
+
+.row-a1{
+    margin: 7px 0;
+    padding-bottom: 1px;
+    border-radius: 7px;
+    overflow: hidden;
+    background-color: #f8f8f8;
+}
+.g-tit1{
+    height: 38px;
+    line-height: 38px;
+    padding: 0 12px;
+    font-size: 14px;
+    background-color: #fff;
+}
+.g-tit1 .more{
+    float: right;
+    color: #95989a;
+    padding-right: 10px;
+    background: url(../images/ico-01.png) right center no-repeat;
+    background-size: 7px auto;
+}
+
+.sl-list2{
+    margin: 7px;
+    width: 100%;
+    white-space: nowrap;
+    overflow-y: auto;
+}
+.sl-list2 li{
+    display: inline-block;
+    margin-right: 7px;
+    text-align: center;
+    background-color: #fff;
+    font-size: 12px;
+    color: #95989a;
+    border-radius: 7px;
+    overflow: hidden;
+}
+.sl-list2 .pic{
+    height: 100px;
+    width: 100px;
+    border-radius: 7px;
+    overflow: hidden;
+}
+.sl-list2 .pic img{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.sl-list2 li p{
+    line-height: 22px;
+    white-space: nowrap;
+    overflow: hidden;
+    -ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+}
+
+.sl-list2.list1 .pic{
+    width: 125px;
+    height: 79px;
+}  
+.sl-list2.list2 .pic{
+    width: 100px;
+    height: 130px;
+}
+.sl-list3{
+    padding: 7px 7px 1px;
+}
+.sl-list3 li{
+    overflow: hidden;
+    margin-bottom: 7px;
+    background-color: #fff;
+}
+.sl-list3 .pic{
+    position: relative;
+    float: left;
+    width: 64px;
+    height: 64px;
+    overflow: hidden;
+    border-radius: 7px;
+}
+.sl-list3 .pic .tg{
+    position: absolute;
+    top: -1px;left: -1px;
+    width: 18px;height: 18px;
+    line-height: 18px;
+    text-align: center;
+    font-size: 12px;
+    color: #fff;
+    background: url(../images/ico-02.png) 0 0 no-repeat;
+    background-size: 100% 100%;
+}
+.sl-list3 .pic .tg1{
+    background: url(../images/ico-03.png) 0 0 no-repeat;
+    background-size: 100% 100%;
+}
+.sl-list3 .pic img{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.sl-list3 .txt{
+    position: relative;
+    margin-left: 74px;
+    font-size: 12px;
+    color: #4d4d4d;
+    padding-right: 60px;
+}
+.sl-list3 .txt h4{
+    font-size: 14px;
+    color: #4d4d4d;
+    font-weight: normal;
+    white-space: nowrap;
+    overflow: hidden;
+    -ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+}
+.sl-list3 .txt p{
+    line-height: 1.2em;
+    display:-webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp:2;
+    -webkit-box-orient:vertical;
+}
+.sl-list3 .txt .num{
+    position: absolute;
+    right: 7px;bottom: 7px;
+    width: 50px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    border-radius: 10px;
+    font-size: 12px;
+    color: #fff;
+    background-color: #c7c9cb;
+}
+.sl-list3 .txt .date{
+    font-size: 12px;
+    color: #95989a;
+}
+
+/*
+-----------------[哈曼卡顿]--------------*/
+.sl-list4{
+    padding-left: 21px;
+    padding-bottom: 50px;
+    overflow: hidden;
+    border-radius: 7px;
+    background-color: #fff;
+}
+.sl-list4 li{
+    padding: 25px 0;
+    overflow: hidden;
+    border-bottom: 1px solid #efeff4;
+}
+.sl-list4 .pic{float: left; width: 90px;}
+.sl-list4 .pic img{height: 70px;}
+.sl-list4 .txt{margin-left: 90px;}
+.sl-list4 .txt h4{
+    font-size: 14px;
+    color: #333;
+    line-height: 1em;
+    margin-bottom: 35px;
+    font-weight: normal;
+    white-space: nowrap;
+    overflow: hidden;
+    -ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+}
+.sl-list4 .txt .con{
+    font-size: 12px;
+    color: #bfbfbf;    
+}
+.sl-list4 .txt .con span{display: inline-block;height: 15px;line-height: 15px; margin-right: 12px;}
+.sl-list4 .txt .con .sp1{
+    padding-left: 17px;
+    background: url(../images/ico-07.png) left center no-repeat;
+    background-size: auto 10px;
+}
+.sl-list4 .txt .con .sp2{
+    padding-left: 16px;
+    background: url(../images/ico-08.png) left center no-repeat;
+    background-size: auto 12px;
+}
+.sl-list4 .txt .con .sp3{
+    padding-left: 16px;
+    background: url(../images/ico-09.png) left center no-repeat;
+    background-size: auto 12px;
+}
+
+/*
+-----------------[课程中心]--------------*/
+.cur-tit{
+    padding: 0 10px;
+    height: 30px;
+    background-color: #1fa3ff;
+    overflow-y: auto;
+    width: 100%;
+    white-space: nowrap;
+}
+.cur-tit li{
+    display: inline-block;
+    height: 100%;
+}
+.cur-tit li a{
+    display: block;
+    height: 100%;
+    line-height: 28px;
+    margin: 0 8px;
+    opacity: .5;
+    font-size: 14px;
+    color: #fff;
+}
+.cur-tit li.on a{border-bottom: 2px solid #fff;opacity: 1;}
+
+.sl-list5{
+    padding: 18px 30px;
+    text-align: center;
+    background-color: #fff;
+}
+.sl-list5 ul{
+    display: inline-block;
+    border-radius: 7px;
+    overflow: hidden;
+    padding: 4px;
+    background-color: #f8f8f8;
+}
+.sl-list5 ul li{
+    display: inline-block;
+    width: 80px;
+    height: 28px;
+    line-height: 28px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+.sl-list5 ul li a{display: block;height: 100%;color: #4d4d4d;opacity: .5;}
+.sl-list5 ul li.on a{background-color: #fff;opacity: 1;}
+
+.row-a2{
+    overflow: hidden;
+    background-color: #fff;
+}
+
+.sl-list6{
+    float: left;
+    width: 75px;
+}
+.sl-list6 li{
+    height: 43px;
+    line-height: 43px;
+    text-align: center;
+}
+.sl-list6 li a{
+    display: block;
+    height: 100%;
+    font-size: 13px;
+    color: #4d4d4d;
+}
+.sl-list6 li.on a{color: #1fa3ff;background-color: #efeff4;}
+.colr1{
+    margin-left: 75px;
+    padding: 0 10px;
+}
+
+.m-pic1{
+    border-radius: 7px;
+    overflow: hidden;
+}
+.m-pic1 img{
+    display: block;
+    width: 100%;
+}
+
+.g-tit1{margin: 15px 0 10px;text-align: center;font-size: 14px;color: #333;}
+.g-tit1 span{
+    display: inline-block;
+    position: relative;
+}
+.g-tit1 span:after{
+    position: absolute;
+    content: '';
+    top: 50%;
+    height: 1px;
+    width: 22px;
+    left: -33px;
+    background-color: #e9e9e9;
+}
+.g-tit1 span:before{
+    position: absolute;
+    content: '';
+    top: 50%;
+    height: 1px;
+    width: 22px;
+    right: -33px;
+    background-color: #e9e9e9;
+}
+
+
+.sl-list7{overflow: hidden;}
+.sl-list7 li{
+    float: left;
+    width: 33.33%;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.sl-list7 .pic{
+    height: 46px;
+    line-height: 46px;
+    width: 60px;
+    margin: 0 auto 15px;
+}
+.sl-list7 .pic img{
+    display: inline-block;
+    vertical-align: middle;
+    max-height: 100%;
+}
+.sl-list7 li p {font-size: 12px;color: #333;white-space: nowrap;overflow: hidden;}
+
+
+
+/*
+-----------------[课程中心2]--------------*/
+.city{background-color: #fff;}
+.city-index{
+    position: fixed;
+    top: 130px;
+    right: 0;
+    width: 22px;
+    padding: 5px 0;
+    text-align: center;
+    border: 1px solid #efeff4;
+    border-radius: 11px;
+    background-color: #fff;
+}
+.city-index a{
+    display: block;
+    font-size: 12px;
+    color: #95989a;
+}
+.city-index a.on{
+    font-weight: bold;
+    color: #1fa3ff;
+}
+.city-cont{
+    overflow: hidden;
+    overflow-y: auto;
+}
+.city-cont .tith2{
+    padding: 0 12px;
+    height: 20px;
+    line-height: 20px;
+    font-size: 13px;
+    font-weight: normal;
+    color: #95989a;
+    background-color: #efeff4;
+}
+.city-cont li{
+    padding-left: 13px;
+    height: 56px;
+    overflow: hidden;
+}
+.city-cont .city{
+    display: block;
+    height: 100%;
+}
+
+.city-cont .city .pic{
+    float: left;
+    width: 36px;
+    height: 36px;
+    margin-top: 10px;
+}
+.city-cont .city .pic img{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.city-cont .city .name{
+    font-size: 16px;
+    color: #4d4d4d;
+    margin-left: 84px;
+    height: 100%;
+    line-height: 55px;
+    border-bottom: 1px solid #f7f7f7;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+
+/*
+-----------------[搜索]--------------*/
+.so-box{
+    padding-bottom: 8px;
+    background-color: #1fa3ff;
+}
+.so-box .box{
+    position: relative;
+    width: 80%;
+    height: 30px;
+    margin: 0 auto;
+    border-radius: 7px;
+    overflow: hidden;
+}
+.so-box .box .txt{
+    display: block;
+    font-size: 15px;
+    color: #333;
+    width: 100%;
+    height: 100%;
+    padding: 0 10px 0 35px;
+    background-color: #fff;
+}
+.so-box .box .btn{
+    position: absolute;
+    left: 0;top: 0;
+    bottom: 0;
+    width: 35px;
+    border: none;
+    outline: none;
+    background: url(../images/so-btn1.png) center center no-repeat;
+    background-size: 16px auto;
+}
+
+.sl-list8{
+    background-color: #fff;
+}
+.sl-list8 ul{
+    padding-bottom: 50px;
+    width: 70%;
+    margin: 0 auto;
+}
+.sl-list8 li{
+    position: relative;
+    font-size: 15px;
+    height: 41px;
+    line-height: 40px;
+    padding: 0 20px 0 23px;
+    background: url(../images/ico-13.png) left center no-repeat;
+    background-size: 16px auto;
+}
+.sl-list8 li .s1{
+    color: #95989a;
+    display: block;
+    height: 100%;
+    border-bottom: 1px solid #efeff4;
+}
+.sl-list8 li .btn{
+    position: absolute;
+    right: 0;
+    top: 12px;
+    width: 16px;
+    height: 16px;
+    background: url(../images/ico-14.png) 0 0 no-repeat;
+    background-size: 100% 100%;
+}
+
+/*
+-----------------[大疆]--------------*/
+
+.m-txt1{
+    padding: 0 12px 30px;
+    font-size: 13px;
+    color: #4d4d4d;
+    background-color: #fff;
+}
+
+.m-txt1 .tit{
+    font-size: 20px;
+    text-align: center;
+}
+.m-txt1 .subtit{
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+.m-txt1 p{text-indent: 2em;}
+
+/*
+-----------------[哈曼卡顿]--------------*/
+.m-txt2{
+    padding: 10px 15px 30px;
+    font-size: 12px;
+    color: #4d4d4d;
+    background-color: #fff;
+}
+.m-txt2 .tit{
+    font-size: 14px;
+    color: #333;
+    height: 25px;
+    line-height: 25px;
+    margin-bottom: 30px;
+}
+.m-txt2 .tit img{
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+    margin-right: 15px;
+}
+
+/*
+-----------------[任务]--------------*/
+.sl-list9{
+    padding: 7px 7px 30px;
+    background-color: #fff;
+}
+.sl-list9 li{
+    position: relative;
+    border-radius: 7px;
+    overflow: hidden;
+    text-align: center;
+    font-size: 12px;
+    color: #fff;
+    margin-bottom: 7px;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
+.sl-list9 li .tp{
+    position: absolute;
+    top: 5px;right: 5px;
+    width: 16px;
+    height: 16px;
+    background: url(../images/ico-16.png) 0 0 no-repeat;
+    background-size: 100% 100%;
+}
+.sl-list9 li .txt{
+    padding: 30px 0 5px;
+    background-color: rgba(0,0,0,.5);
+}
+.progressbar{
+    width: 80%;
+    margin: 5px auto 10px;
+    height: 12px;
+    border-radius: 7px;
+    overflow: hidden;
+    padding: 4px;
+    background-color: rgba(255,255,255,.7);
+}
+.progressbar .bar{
+    height: 4px;
+    border-radius: 4px;
+    background-color: #1fa3ff;
+}
+.sl-list9 .jindu span{
+    display: inline-block;
+    padding: 0 8px;
+    height: 14px;
+    line-height: 14px;
+    border-radius: 12px;
+    overflow: hidden;
+    font-size: 12px;
+    margin-bottom: 35px;
+    background-color: #c7c9cb;
+}
+.sl-list9 .wanc{
+    width: 42px;
+    height: 42px;
+    margin: 5px auto 25px;
+    border-radius: 50%;
+    overflow: hidden;
+    padding-top: 10px;
+    line-height: 1em;
+    background: #1fa3ff url(../images/ico-18.png) center 26px no-repeat;
+    background-size: 17px auto;
+}
+
+.sl-list10{
+    padding: 7px 0 30px;
+    overflow: hidden;
+    background-color: #fff;
+}
+.sl-list10 li{
+    position: relative;
+    float: left;
+    width: 50%;
+    margin-bottom: 13px;
+}
+.sl-list10 .con{
+    position: relative;
+    display: block;
+    margin: 0 7px;
+    height: 98px;
+    border-radius: 7px;
+    overflow: hidden;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
+.sl-list10 .tp{
+    position: absolute;
+    top: 5px;right: 12px;
+    width: 16px;
+    height: 16px;z-index: 3;
+    cursor: pointer;
+    background: url(../images/ico-16.png) 0 0 no-repeat;
+    background-size: 100% 100%;
+}
+.sl-list10 .txt{
+    position: absolute;
+    bottom: 0;left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 2px 7px;
+    font-size: 12px;
+    color: #fff;
+    line-height: 1.2em;z-index: 1;
+    background-color: rgba(0,0,0,.5);
+}
+.sl-list10 .l1 .txt{
+    height: 32px;
+}
+.sl-list10 .l2 .txt{
+    padding: 24px 7px 0;
+}
+.sl-list10 .lq{
+    position: absolute;
+    right: -1px;bottom: -1px;
+    width: 43px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    font-size: 12px;
+    color: #fff;
+    background: url(../images/ico-17.png) 0 0 no-repeat;
+    background-size: 100% 100%;
+    z-index: 3;
+}
+
+
+.sl-list10 .con .tp1,.sl-list9 li .tp1 {
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    width: 18px;
+    height: 18px;
+    line-height: 18px;
+    text-align: center;
+    font-size: 12px;
+    color: #fff;
+    z-index: 3;
+    background: url(../images/ico-03.png) 0 0 no-repeat;
+    background-size: 100% 100%;
+}
+.sl-list10 .con .tp2,.sl-list9 li .tp2 {
+    background: url(../images/ico-02.png) 0 0 no-repeat;
+    background-size: 100% 100%;
+}
+
+
+/*
+-----------------[排行榜]--------------*/
+.sl-list11{
+    padding: 20px 0;
+    text-align: center;
+    background-color: #fff;
+}
+.sl-list11 .tit{
+    font-size: 16px;
+    color: #222;
+    line-height: 1em;
+    margin-bottom: 10px;
+}
+.sl-list11 ul{
+    overflow: hidden;
+    position: relative;
+}
+.sl-list11 ul:after{
+    position: absolute;
+    content: '';
+    left: 0;width: 100%;
+    height: 3px;top: 11px;
+    z-index: 1;
+    background-color: #efeff4;
+}
+.sl-list11 ul li{
+    position: relative;
+    float: left;
+    width: 33.33%;
+    padding-top: 26px;
+}
+.sl-list11 ul li:after{
+    position: absolute;
+    content: '';
+    top: 5px;left: 50%;
+    margin-left: -8px;
+    width: 16px;
+    height: 16px;z-index: 2;
+    background: url(../images/ico-19.png) 0 0 no-repeat;
+    background-size: 100% 100%;
+}
+.sl-list11 ul li.on:after{
+    background: url(../images/ico-20.png) 0 0 no-repeat;
+    background-size: 100% 100%;
+}
+
+
+.sl-list12{
+    margin-top: 10px;
+    background-color: #fff;
+}
+.sl-list12.my{
+    margin: 0;
+}
+.sl-list12.my .con{border: none;}
+.sl-list12 li{
+    padding-right: 20px;
+    line-height: 56px;
+    overflow: hidden;
+}
+.sl-list12 li .num{
+    float: left;
+    font-size: 20px;
+    color: #222;
+    width: 37px;
+    height: 100%;
+    text-align: center;
+}
+.sl-list12 li .pic{
+    float: left;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    margin-top: 10px;
+    overflow: hidden;
+}
+.sl-list12 li .pic img{
+    display: block;
+    width: 100%;height: 100%;
+}
+.sl-list12 li .con{
+    padding-left: 11px;
+    height: 100%;
+    margin-left: 86px;
+    border-bottom: 1px solid #efeff4;
+}
+.sl-list12 li .box1,.sl-list12 li .box2{overflow: hidden;}
+.sl-list12 li .con .score{
+    float: right;
+    padding-top: 10px;
+}
+.sl-list12 li .con .score span{
+    display: block;
+    text-align: center;
+    line-height: 22px;
+}
+.sl-list12 li .con .score .sp1{
+    font-size: 17px;
+    color: #4d4d4d;
+}
+.sl-list12 li .con .score .sp2{
+    font-size: 13px;
+    color: #c7c7cc;
+}
+.sl-list12 li .con .name{
+    font-size: 16px;
+    color: #222;
+}
+.sl-list12 li.l1 .num{color: #ffd105;}
+.sl-list12 li.l1 .con .score .sp1{color: #ffd105;}
+.sl-list12 .box2{display: none;}
+.sl-list12 .box2 .td{
+    float: left;
+    width: 33.33%;
+    text-align: center;
+    margin-bottom: 5px;
+    border-right: 1px solid #efeff4;
+}
+.sl-list12 .box2 .td:last-child{border: none;}
+.sl-list12 .box2 .sp3{
+    display: block;
+}
+.sl-list12 .box2 span{
+    display: block;
+    text-align: center;
+    line-height: 22px;
+}
+.sl-list12 .box2 .sp3{
+    font-size: 17px;
+    color: #4d4d4d;
+}
+.sl-list12 .box2 .sp4{
+    font-size: 13px;
+    color: #c7c7cc;
+}
+.sl-list12.mart0{margin-top: 0;}
+
+
+.m-chart{
+    text-align: center;
+    padding: 20px 0 30px;
+    background-color: #fff;
+}
+.m-chart .tit{
+    font-size: 16px;
+    color: #222;
+    margin-bottom: 20px;
+}
+
+.my-nl{
+    overflow: hidden;
+    text-align: center;
+    padding: 10px 0 50px;
+    background-color: #fff;
+}
+.my-nl .tit{
+    font-size: 20px;
+    color: #222;
+    margin-bottom: 20px;
+}
+.my-nl .td{
+    float: left;
+    width: 50%;
+    border-right: 1px solid #efeff4;
+}
+.my-nl .td:last-child{border: none;}
+.my-nl .td span{
+    display: block;
+
+}
+.my-nl .sp1{
+    font-size: 25px;
+    color: #666666;
+}
+.my-nl .sp2{
+    font-size: 13px;
+    color: #c7c7cc;
+}
+
+
+/*
+-----------------[个人中心]--------------*/
+.header .tit.user{
+    font-size: 20px;
+    padding-right: 22px;
+    background: url(../images/ico-23.png) right center no-repeat;
+    background-size: 12px auto;
+}
+.header .tit.user.on{
+    background: url(../images/ico-22.png) right center no-repeat;
+    background-size: 12px auto;
+}
+
+.m-chart1{
+    display: none;
+    padding: 10px 0;
+    background-color: #1fa3ff;
+}
+.m-chart1.open{display: block;}
+
+.sl-list13{
+    background-color: #fff;
+}
+.sl-list13 .tit{
+    height: 42px;
+    line-height: 42px;
+    padding: 0 16px;
+    font-size: 13px;
+    color: #929292;
+}
+.sl-list13 .tit .con2{display: none;}
+
+.sl-list13 .tit .gl{
+    float: right;
+    cursor: pointer;
+}
+.sl-list13 .tit .cancel,.sl-list13 .tit .del{
+    float: right;
+    margin-left: 25px;
+    cursor: pointer;
+}
+.sl-list13 .tit .checkall{cursor: pointer;float: left;}
+
+
+
+.sl-list13 li{padding: 5px 0; overflow: hidden;}
+.sl-list13 li .pic{
+    float: left;
+    width: 50px;
+    height: 50px;
+    margin-left: 15px;
+}
+.sl-list13 li .txt{
+    margin-left: 80px;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #efeff4;
+}
+.sl-list13 li .txt .con{
+    height: 33px;
+    overflow: hidden;
+}
+.sl-list13 li .txt h4{
+    font-size: 14px;
+    color: #222;
+    font-weight: normal;
+    line-height: 1em;
+    white-space: nowrap;
+    overflow: hidden;
+    -ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    margin-bottom: 2px;
+}
+.sl-list13 li .txt .score{font-size: 17px;color: #222;line-height: 1em;}
+.sl-list13 li .txt .date{font-size: 12px;color: #c7c7cc;}
+.sl-list13 li .checkbox{
+    display: none;
+    float: left;
+    margin-left: 15px;
+    width: 15px;
+    height: 15px;
+    margin-top: 17px;
+}
+.sl-list13 .txt .con1{
+    display: none;
+    padding-top: 10px;
+    font-size: 13px;
+    color: #929292;
+}
+.sl-list13 .txt .con1 span{
+    display: inline-block;
+    height: 20px;
+    line-height: 20px;
+    padding: 0 23px;
+    border-right: 1px solid #efeff4;
+}
+.sl-list13 .txt .con1 span:last-child{border: none;}
+
+
+.sl-list13 .edit li .checkbox{display: block;}
+.sl-list13 .edit li .txt,.sl-list13 .edit li .txt1{
+    margin-left: 110px;
+}
+
+
+.sl-list13 .pic1{
+    border-radius: 50%;
+    overflow: hidden;
+}
+.sl-list13 .txt1 h4{
+    font-size: 14px;
+    color: #222;
+    line-height: 1.8em;
+    font-weight: normal;
+    white-space: nowrap;
+    overflow: hidden;
+    -ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+}
+.sl-list13 .txt1{
+    padding: 5px 16px 5px 0;
+    font-size: 12px;
+    color: #929292;
+    margin-left: 80px;
+    overflow: hidden;
+    border-bottom: 1px solid #efeff4;
+}
+.sl-list13 .txt1 .con1{
+    float: right;
+    text-align: right;
+}
+.sl-list13 .txt1 .con1 .sp1{
+    display: block;
+    font-size: 12px;
+    color: #c7c7cc;
+}
+.sl-list13 .txt1 .con1 .sp2{
+    display: inline-block;
+    border-radius: 16px;
+    height: 16px;
+    line-height: 16px;
+    padding: 0 5px;
+    font-size: 12px;
+    color: #fff;
+    background-color: #ff4141;
+}
+
+.m-pop{
+    display: none;
+    position: fixed;
+    top: 0;left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+    background-color: rgba(0,0,0,.5);
+}
+.m-pop .box{
+    position: absolute;
+    width: 90%;
+    top: 50%;left: 50%;
+    background-color: #fff;
+    transform: translate(-50%,-50%);
+}
+.m-pop .box span{
+    display: block;
+    font-size: 16px;
+    height: 46px;
+    line-height: 45px;
+    color: #222;
+    padding: 0 15px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.m-pop .box1{
+    position: absolute;
+    width: 98%;
+    border-radius: 7px;
+    overflow: hidden;
+    top: 50%;left: 50%;
+    background-color: #fff;
+    transform: translate(-50%,-50%);
+}
+.m-pop .box1 .pic img{
+    display: block;
+    width: 100%;
+}
+.m-pop .box1 .pic{
+    position: relative;
+}
+.m-pop .box1 .pic .tp {
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    width: 18px;
+    height: 18px;
+    line-height: 18px;
+    text-align: center;
+    font-size: 12px;
+    color: #fff;
+    z-index: 3;
+    background: url(../images/ico-02.png) 0 0 no-repeat;
+    background-size: 100% 100%;
+}
+.m-pop .txt{
+    font-size: 13px;
+    color: #4d4d4d;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e0e0e0;
+}
+.m-pop .txt .tit{
+    font-size: 15px;
+    text-align: center;
+}
+.m-pop .txt .tit span{
+    padding: 10px 5px 5px;
+    border-bottom: 1px solid #ffd105;
+}
+.m-pop .txt .subtit{
+    font-size: 12px;
+    color: #4d4d4d;
+    text-align: center;
+    margin: 10px 0 20px;
+}
+.m-pop .txt p{
+    text-indent: 2em;
+}
+.m-pop .box1 .btn{
+    display: block;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    font-size: 15px;
+    color: #4d4d4d;
+}
+.m-pop .box1 .btn span{
+    padding-left: 23px;
+    background: url(../images/ico-25.png) left center no-repeat;
+    background-size: 20px auto;
+}
+
+.m-chart1,.m-chart .box{position: relative;}
+.chart-num{height: 240px; }
+.m-chart1 .logo,.m-chart .logo{
+    position: absolute;
+    width: 60px;height: 60px;
+    left: 50%;top: 50%;
+    transform: translate(-50%,-50%);
+}
+
+
+

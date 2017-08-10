@@ -68,28 +68,25 @@
                         </div>
                         <div class="city-cont" style="height: 648px;">
 						
-							<?php foreach(range('A','Z') as $key){ ?>
-								
-								<div class="item" id="<?php $key; ?>">
-                                <h2 class="tith2"><?php echo $key; ?></h2>
-                                <ul>
-                                    <li>
-                                        <a href="{:url('lesson/brandlist')}" class="city">
-                                            <div class="pic">
-                                                <img src="/static/static/images/pic-02.jpg" alt="">
-                                            </div>
-                                            <div class="name">AKG</div>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-								
-							<?php }?>
+								<foreach name="arr" item="vo" key="key">
+                                
+								<div class="item" id="{$key}">
+                                    <h2 class="tith2">{$key}</h2>
+                                    <ul>
+                                    <foreach name="vo" item="vv">
+                                        <li>
+                                            <a href="{:url('lesson/brandlist',array('id'=>$vv.id))}" class="city">
+                                                <div class="pic">
+                                                    <img src="http://dd.moresales.cn/upload/{$vv.thumb}" alt="">
+                                                </div>
+                                                <div class="name">{$vv.cname}</div>
+                                            </a>
+                                        </li>
+                                        </foreach>
+                                    </ul>
+                                </div>
+								</foreach>
 						
-							
-						
-                            
-                           
                         </div>
                     </div>
                 </div>

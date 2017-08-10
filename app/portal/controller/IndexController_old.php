@@ -36,7 +36,7 @@ class IndexController extends HomeBaseController
 		   'appname' => self::$APPNAME,
 		);
 								   
-		 return　$config;
+		 return $config;
 		 // RETURN JSON_encode($config, JSON_UNESCAPED_SLASHES);
 		 // return response()->json($config);
 	}

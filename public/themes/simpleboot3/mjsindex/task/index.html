@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+    <title></title>
+    <link rel="stylesheet" href="http://dd.moresales.cn/static/static/css/cui.css" />
+    <link rel="stylesheet" href="http://dd.moresales.cn/static/static/css/lib.css" />
+    <link rel="stylesheet" href="http://dd.moresales.cn/static/static/css/style.css" />
+
+</head>
+<body>
+    
+    <div class="viewport">
+        <!-- 头部 -->
+        <div class="header">
+            <span class="tit">任务</span>
+           <!-- <div class="so-btn"></div>-->
+            <a href="javascript:history.go(-1)" class="back"></a>
+        </div>
+        <!-- 头部 end -->
+        
+        <ul class="cur-tit TAB_CLICK" id=".tab-show1">
+            <foreach name="TaskData" item="vo">
+                <if condition="1==0">
+            <li class="on"><a href="javascript:void(0);" class="on">{$vo.name}</a></li>
+                <else/>
+                    <li><a href="javascript:void(0);">{$vo.name}</a></li>
+                </if>
+            </foreach>
+        </ul>
+
+        <!-- 内容 -->
+        <div class="main">
+            <div class="tab-show1">
+                <ul class="sl-list10">
+                    <foreach name="TaskDataAll" item="voo" key="key">
+                        <if condition="($key/2)!=0">
+                    <li class="l1" onclick="showinfo('{$voo.info}','{$voo.end_time}','{$voo.name}','{$voo.task_user}','{$voo.id}')">
+                        <a href="javascript:onclick='showinfo('{$voo.info}','{$voo.end_time}','{$voo.name}','{$voo.id}')';" class="con" style="background-image: url({:cmf_get_image_preview_url($voo.image_url)});">
+                            <div class="txt">
+                                <p>{$voo.name}</p>
+                                <p>{$voo.start_time}</p>
+                            </div>
+                            <if condition='$voo["task_user"]==1'><span class="lq">已领取</span></if>
+                            <span class="tp1" <if condition='$voo["class_status"]==2'>tp2</if> >{$voo.class_short_name}</span>
+                        </a>
+                        <span class="tp" ></span>
+                    </li>
+                        <else/>
+                            <li class="l2" onclick="showinfo('{$voo.info}','{$voo.end_time}','{$voo.name}','{$voo.task_user}','{$voo.id}')">
+                                <a href="javascript:void(0);" class="con" style="background-image: url({:cmf_get_image_preview_url($voo.image_url)});">
+                                    <div class="txt">
+                                        <p>{$voo.name}</p>
+                                        <p>{$voo.start_time}</p>
+                                    </div>
+                                    <if condition='$voo["task_user"]==1'><span class="lq">已领取</span></if>
+                                    <span class="tp1  <if condition='$voo["class_status"]==2'>tp2</if>">{$voo.class_short_name}</span>
+                                </a>
+                                <span class="tp"></span>
+                            </li>
+                        </if>
+                </foreach>
+                </ul>
+            </div>
+            <div class="tab-show1">
+                <ul class="sl-list10">
+                    <foreach name="TaskDataAll_1" item="voo" key="key">
+                        <if condition="($key/2)!=0">
+                            <li class="l1" onclick="showinfo('{$voo.info}','{$voo.end_time}','{$voo.name}','{$voo.task_user}','{$voo.id}')">
+                                <a href="javascript:onclick="showinfo('{$voo.info}','{$voo.end_time}','{$voo.name}')";" class="con" style="background-image: url({:cmf_get_image_preview_url($voo.image_url)});">
+                                    <div class="txt">
+                                        <p>{$voo.name}</p>
+                                        <p>{$voo.end_time}</p>
+                                    </div>
+                                <if condition='$voo["task_user"]==1'><span class="lq">已领取</span></if>
+                                    <span class="tp1" <if condition='$voo["class_name"]==2'>tp2</if> >{$voo.class_short_name}</span>
+                                </a>
+                                <span class="tp" ></span>
+                            </li>
+                            <else/>
+                            <li class="l2" onclick="showinfo('{$voo.info}','{$voo.end_time}','{$voo.name}','{$voo.task_user}','{$voo.id}')">
+                                <a href="javascript:onclick="showinfo('{$voo.info}','{$voo.end_time}','{$voo.name}')";" class="con" style="background-image: url({:cmf_get_image_preview_url($voo.image_url)});">
+                                    <div class="txt">
+                                        <p>{$voo.name}</p>
+                                        <p>{$voo.end_time}</p>
+                                    </div>
+                                <if condition='$voo["task_user"]==1'><span class="lq">已领取</span></if>
+                                    <span class="tp1  <if condition='$voo["class_name"]==2'>tp2</if>">{$voo.class_short_name}</span>
+                        </a>
+                        <span class="tp"></span>
+                        </li>
+                        </if>
+                    </foreach>
+                </ul>
+            </div>
+            <div class="tab-show1">
+                <ul class="sl-list9">
+                    <foreach name="TaskDataAll_3" item="vu">
+                        <if condition="$vu['tu_status']==0">
+                    <li style="background-image: url(images/pic-04.jpg);">
+                        <div class="txt">
+                            <p>{$vu.name}</p>
+                            <p>{$vu.explain}</p>
+                            <div class="progressbar">
+                                <div class="bar" style="width: {$vu.ceil_num}%;"></div>
+                            </div>
+                            <div class="jindu"><span>已完成{$vu.use_num}/{$vu.num}</span></div>
+                            <div class="date">{$vu.end_time}</div>
+                        </div>
+                        <div class="tp"></div>
+                        <span class="tp1" <if condition='$voo["class_status"]==2'>tp2</if> >{$voo.class_short_name}</span>
+                    </li>
+                        </if>
+                        <if condition="$vu['tu_status']==1">
+                    <li style="background-image: url(images/pic-04.jpg);">
+                        <div class="txt">
+                            <p>{$vu.name}</p>
+                            <p>{$vu.explain}</p>
+                            <div class="wanc">已完成</div>
+                            <div class="date">{$vu.end_time}</div>
+                        </div>
+                        <div class="tp"></div>
+                        <span class="tp1" <if condition='$voo["class_status"]==2'>tp2</if> >{$voo.class_short_name}</span>
+                    </li>
+                        </if>
+                    </foreach>
+                </ul>
+            </div>
+        </div>
+        <!-- 内容 end -->
+        
+        <!-- 底部 -->
+        <div class="footer">
+            <ul class="ft-list1">
+                <li class="l1">
+                    <a href=" 'index/index')}">
+                        <div class="ico"></div>
+                        <p>首页</p >
+                    </a >
+                </li>
+                <li class="l2">
+                    <a href="{:url('lesson/index')}">
+                        <div class="ico"></div>
+                        <p>课程</p >
+                    </a >
+                </li>
+                <li class="l3 on">
+                    <a href="{:url('task/index')}">
+                        <div class="ico"></div>
+                        <p>任务</p >
+                    </a >
+                </li>
+                <li class="l4">
+                    <a href="{:url('rank/index')}">
+                        <div class="ico"></div>
+                        <p>排行</p >
+                    </a >
+                </li>
+                <li class="l5">
+                    <a href="{:url('person/index')}">
+                        <div class="ico"></div>
+                        <p>我的</p >
+                    </a >
+                </li>
+            </ul>
+        </div>
+        <!-- 底部 end -->
+    </div>
+    <div class="m-pop pop1">
+        <div class="box1" style="height:60%;overflow-y:auto;">
+            <div class="pic">
+                <img src="images/pic-04.jpg" alt="">
+                <div class="tp"></div>
+            </div>
+            <div class="txt">
+                <div class="tit"><span>销售任务名称销售任务名称销售任务名称</span></div>
+                <div class="subtit">期限：2017-07-31</div>
+                <p></p>
+            </div>
+            <a href="javascript:void(0);" class="btn"><span>上传凭证</span></a>
+            <a href=""  id="ccc" style="display: block;height: 45px;line-height: 45px;text-align: center;font-size: 15px;color: #4d4d4d;"><span style="background: none;">领取</span></a>
+        </div>
+    </div>
+
+    <div class="m-pop pop2">
+        <div class="box">
+            <form method="post" action="{:url('task/taskUserAdd')}" enctype="multipart/form-data">
+                <input value="" id="task_id__id" name="task_id" type="hidden">
+                <span class="sp1"><input accept="image/*" name="file" type="file"></span>
+                <span class="sp1">备注：<input name="msg" type="test"></span>
+                <span class="sp1">数量：<input name="num" type="test"></span>
+                <span class="sp1"  style="text-align:center;font-size:15px;"><input type="submit" value="提交"></span>
+            </form>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="http://dd.moresales.cn/static/static/js/jquery.js"></script>
+    <script type="text/javascript" src="http://dd.moresales.cn/static/static/js/lib.js"></script>
+    <script>
+        function showinfo(a,b,c,d,id){
+            $('.box1 .tit span').html(c);
+            $('.box1 .subtit').html(b);
+            $('.box1 p').html(a);
+            $('.m-pop.pop1').show();
+            $('#task_id__id').val(id);
+            if(d==1){
+                $('.box1 #ccc').hide();
+                $('.box1 .btn').show();
+            }else{
+                $('.box1 .btn').hide();
+                $('.box1  #ccc').show();
+                $('.box1  #ccc').attr('href','{:url('task/linqutask')}'+'?task_id='+id);
+            }
+        }
+         $('.m-pop .box1 .btn').click(function(event) {
+             $('.m-pop.pop2').show();
+        });
+         $('.m-pop').click(function(event) {
+            $(this).hide();
+         });
+         $('.m-pop .box,.m-pop .box1').click(function(event) {
+            event.stopPropagation();
+         });
+    </script>
+
+</body>
+</html>

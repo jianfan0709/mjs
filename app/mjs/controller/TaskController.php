@@ -111,6 +111,8 @@ class TaskController extends AdminBaseController
         if(empty($data['post']['end_time'])){
             $model = new \app\mjs\model\JsClassifyModel();
             $data['post']['end_time']=$data['post']['start_time']+$model->getClassifyFind(['id'=>$data['post']['classify_id']])['valid_name'];
+        }else{
+            $data['post']['end_time']=strtotime($data['post']['end_time']);
         }
         $model = new \app\mjs\model\JsTaskModel();
         $re=$model->TaskAdd($data['post']);
@@ -127,6 +129,8 @@ class TaskController extends AdminBaseController
         if(empty($data['post']['end_time'])){
             $model = new \app\mjs\model\JsClassifyModel();
             $data['post']['end_time']=$data['post']['start_time']+$model->getClassifyFind(['id'=>$data['post']['classify_id']])['valid_name'];
+        }else{
+            $data['post']['end_time']=strtotime($data['post']['end_time']);
         }
         $model = new \app\mjs\model\JsTaskModel();
         $re=$model->TaskEdd($data['post'],['id'=>$this->request->param('id')]);

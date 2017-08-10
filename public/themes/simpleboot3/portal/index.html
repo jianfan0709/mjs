@@ -27,19 +27,19 @@
             <!-- banner -->
             <div class="banner">
                 <a href="" class="item">
-                    <img src="/static/static/images/pic-01.jpg" alt="">
+                    <img src="http://dd.moresales.cn/upload/banner/1.jpg" alt="">
                 </a>
                 <a href="" class="item">
-                    <img src="/static/static/images/pic-01.jpg" alt="">
+                    <img src="http://dd.moresales.cn/upload/banner/2.jpg" alt="">
                 </a>
                 <a href="" class="item">
-                    <img src="/static/static/images/pic-01.jpg" alt="">
+                    <img src="http://dd.moresales.cn/upload/banner/3.jpg" alt="">
                 </a>
                 <a href="" class="item">
-                    <img src="/static/static/images/pic-01.jpg" alt="">
+                    <img src="http://dd.moresales.cn/upload/banner/4.jpg" alt="">
                 </a>
                 <a href="" class="item">
-                    <img src="/static/static/images/pic-01.jpg" alt="">
+                    <img src="http://dd.moresales.cn/upload/banner/5.jpg" alt="">
                 </a>
             </div>
             <!-- banner -->
@@ -68,36 +68,15 @@
                     <span>热门课程</span>
                 </div>
                 <ul class="sl-list2">
+				<foreach name="lesson" item="vo">
+					<a href="{:url('lesson/brand',array('id'=>$vo['id']))}">
                     <li>
                         <div class="pic">
-                            <img src="/static/static/images/pic-02.jpg" alt="">
+                            <img src="http://dd.moresales.cn/upload//{$vo.pic}" alt="">
                         </div>
-                        <p>文本示例文本示例</p>
+                        <p>{$vo.name}</p>
                     </li>
-                    <li>
-                        <div class="pic">
-                            <img src="/static/static/images/pic-02.jpg" alt="">
-                        </div>
-                        <p>文本示例文本示例</p>
-                    </li>
-                    <li>
-                        <div class="pic">
-                            <img src="/static/static/images/pic-02.jpg" alt="">
-                        </div>
-                        <p>文本示例文本示例</p>
-                    </li>
-                    <li>
-                        <div class="pic">
-                            <img src="/static/static/images/pic-02.jpg" alt="">
-                        </div>
-                        <p>文本示例文本示例</p>
-                    </li>
-                    <li>
-                        <div class="pic">
-                            <img src="/static/static/images/pic-02.jpg" alt="">
-                        </div>
-                        <p>文本示例文本示例</p>
-                    </li>
+                </foreach>
                 </ul>
             </div>
             <!-- 热门课程 end -->
